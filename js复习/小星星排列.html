@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>小星星 排列</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			#ul1{
+				width: 200px;
+			}
+			#ul1 li{
+				float: left;
+				height: 28px;
+				width: 28px;
+				background: url(img/star.gif) no-repeat 0 0;	
+			}
+		</style>
+	</head>
+	<body>
+		
+		<ul id="ul1">
+			<li class="li1"></li>
+			<li class="li1"></li>
+			<li class="li1"></li>
+			<li class="li1"></li>
+			<li class="li1"></li>
+		</ul>
+			<div style="clear:both;"></div>
+		
+		<div id="div1">..</div>
+	</body>
+	<!--
+		青春无畏，逐梦扬威。
+		齐心协力，共铸辉煌。
+		
+		信心百倍，斗志昂扬。
+		全力以赴，铸我辉煌。	
+	-->
+	<script type="text/javascript">
+		var arr=["差评","不推荐","一般","推荐","强力推荐"];
+		//获取
+		var oUl=document.getElementById("ul1");
+		var oLi=document.getElementsByTagName("li");
+		 for(var i=0;i<oLi.length;i++){
+		 	oLi[i].num=i;
+		 	oLi[i].onmouseover=function(){
+		 		for(var j=0;j<5;j++){
+		 			if(j<=this.num){
+		 				oLi[j].style.background="url(img/star.gif) no-repeat 0 -28px"
+		 			}else{
+		 				oLi[j].style.background="url(img/star.gif) no-repeat 0 0"
+		 			}
+		 		   }
+		    	 }
+				 	oLi[i].onclick=function(){
+				 		document.getElementById("div1").innerHTML=arr[this.num];
+				  }
+		 	   }
+	</script>
+</html>

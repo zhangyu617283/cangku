@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="dd">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+	   //1创建对象
+	   var xhr=null;
+	   if(window.XMLHttpRequest){
+	   	 xhr=new XMLHttpRequest(); 
+	   }else{
+	   	 xhr=new ActiveXObject();
+	   }
+	   console.log(xhr);
+	   //2创建与服务器的链接
+	   xhr.open("get","111.txt",true);
+	   //3发送请求
+	   xhr.send(null);
+	   //4获取响应数据
+      xhr.onreadystatechange=function(){
+      	   if(xhr.readyState==4){
+      	   	    if(xhr.status==200){
+      	   	    	var  data= xhr.responseText;
+      	   	    	show(data);
+      	   	    }else{
+      	   	    	console.log("数据请求失败")
+      	   	    }
+      	   }
+      	    
+      }	   
+	   function show(data){
+	   	   document.getElementById("dd").innerHTML=data
+   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//		//1创建XMLHttpRequest对象
+//		var xinjian=null;
+//		if(window.XMLHttpRequest){
+//			//兼容主流浏览器
+//			xinjian=new XMLHttpRequest();
+//		}else{
+//			//兼容 IE5 IE6
+//			xinjian=new ActiveXObject();
+//		}
+//		console.log(xinjian);
+//		//2建立与服务器的链接
+//		xinjian.open("get","111.txt",true);
+//		//3发送请求
+//		xinjian.send(null);
+//		//4获取相应数据
+//		xinjian.onreadystatechange=function(){
+//			
+//			if(xinjian.readyState==4){
+//				if(xinjian.status==200){
+//					var data=xinjian.responseText;
+//					console.log(data);
+//					show(data)
+//				}else{
+//					console.log("网络请求错误");
+//				}
+//			}
+//		}
+//		function show(data){
+//			console.log(data)
+//			document.getElementById("dd").innerHTML=data;
+//		}
+	</script>
+</html>

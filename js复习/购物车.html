@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		button{
+			width: 30px;
+			height: 20px;
+			text-align: center;
+			line-height: 20px;
+		}
+			.car{
+				margin: 0 auto;
+				width: 800px;
+				height: 500px;
+			}
+			.logo{
+				float: left;
+				
+			}
+			.logo img{
+				width: 400px;
+				height: 200px;
+			}
+			#btn1{
+				float: right;
+				width: 80px;
+				height: 50px;
+				background: #ff0000;
+				border: none;
+				border-radius: 8px;
+				color: #FFFFFF;
+				font-size: 16px;
+			}
+			table{
+				width: 800px;
+				height: 430px;
+				border-collapse: collapse;
+				text-align: center;
+				margin-top: 50px;
+			}
+			table img{
+				width: 40%;
+			}
+			th,td{
+				width: 100px;
+			}
+			.btn2, .btn3{
+				width: 80px;
+				height: 30px;
+				border: none;
+				background: none;
+			}
+			#btn4{
+				width: 100px;
+				height: 50px;
+				background: #FF0000;
+				color: #FFFFFF;
+				font-size: 20px;
+				border: none;
+				border-radius: 8px;
+				margin-left: 200px;
+			}
+			#span1{
+				color: #FF0000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="car">
+			<div class="logo">
+				<img src="img/20170313115544142.jpg"/>
+			</div>
+			<input type="button" id="btn1" value="关闭" />
+			<br />
+			<table cellspacing="0" cellpadding="0">
+				<tr>
+					<th>商品图片</th>
+					<th>商品信息</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>总价</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td><img src="img/4.jpg" style="width: 200px;height: 100px;"/></td>
+					<td>回忆总想哭</td>
+					<td class="d1">21</td>
+					<td>
+						<button class="sub">-</button>
+						<span class="s1">1</span>
+						<button class="add">+</button>
+					</td>
+					<td class="d3">21</td>
+					<td>
+						<input type="button" class="cang" value="移入收藏" />
+						<input type="button" class="del" value="删除" />
+					</td>
+				</tr>
+				<tr>
+					<td><img src="img/11.png" style="width: 200px;height: 100px;"/></td>
+					<td>一个太孤独</td>
+					<td class="d1">24</td>
+					<td>
+						<button class="sub">-</button>
+						<span class="s1">1</span>
+						<button class="add">+</button>
+					</td>
+					<td class="d3">24</td>
+					<td>
+						<input type="button" class="cang" value="移入收藏" />
+						<input type="button" class="del" value="删除" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6">
+						<span>商品总计：</span>
+						<span id="zongji">0</span>
+						<input type="button" id="btn4" value="结算" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>	
+	<script type="text/javascript">
+		//++ 累加
+		var oAdd=document.getElementsByClassName("add");
+		for(var i=0;i<oAdd.length;i++){	
+			oAdd[i].onclick=function(){
+				this.previousElementSibling.innerHTML++
+				zongjia();
+				zongji()
+			}
+		}
+		//-- 累减
+		var oSub=document.getElementsByClassName("sub");
+		for(var j=0;j<oSub.length;j++){	
+			oSub[j].onclick=function(){				
+				this.nextElementSibling.innerHTML--;
+               if(this.nextElementSibling.innerHTML<=1){
+               	  this.nextElementSibling.innerHTML=1
+               } 
+               zongjia();
+               zongji()
+			}
+		}
+		//总价	
+		var oDanjia = document.getElementsByClassName("d1");
+		var oShuliang = document.getElementsByClassName("s1");
+		var oZongjia=document.getElementsByClassName("d3")
+		function zongjia(){
+			for(var x=0;x<oDanjia.length;x++){
+				oZongjia[x].innerHTML=oDanjia[x].innerHTML*oShuliang[x].innerHTML
+			}			
+		}
+		//总计
+		var oZong=document.getElementById("zongji");		
+		function zongji(){
+			var zong=0;
+			for(var i=0;i<oZongjia.length;i++){
+				zong+=Number(oZongjia[i].innerHTML)
+			}
+			oZong.innerHTML=zong;
+		}
+	
+	</script>
+</html>
+
+ 

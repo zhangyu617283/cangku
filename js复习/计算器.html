@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简易计算器</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var a=prompt("请输入第1个数字");
+		var b=prompt("请输入第2个数字");
+		var c=prompt("请输入计算符号");
+		var a1=Number(a) ;
+		var b1=Number(b) ;		
+		if(c=="+"){
+			var he=a1+b1
+			alert("和为"+he)			
+		}else if(c=="-"){
+			var cha=a1-b1
+			alert("差为"+cha)
+		}else if(c=="*"){
+			var ji=a1*b1
+			alert("积为"+ji)
+		}else if(c=="/"){
+			var shang=a1/b1
+			alert("商为"+shang)
+		}		
+	</script>
+</html>
